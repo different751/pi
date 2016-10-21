@@ -1,0 +1,6 @@
+pi
+*.o
+*.exe
+*~
+*.dSYM
+*.swp

@@ -1,0 +1,4 @@
+test:
+  script: "tap t/* --reporter=spec --timeout=30 --color"
+  tags:
+    - gcc

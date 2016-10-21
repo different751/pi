@@ -1,19 +1,20 @@
 #include <stdio.h>
 #include <math.h>
+#include <assert.h>
 
 #ifndef M_PI
 #define M_PI 3.141562953589793238462643383279502884
 #endif
 
 static long double trapezoid(long double (*f)(long double), 
-                             long double a, long double b, long double n);
+                             long double a, long double b, int n);
 static long double simpsons_third(long double (*f)(long double), 
-                                  long double a, long double b, long double n);
+                                  long double a, long double b, int n);
 static long double simpsons_three_eighth(long double (*f)(long double), 
                                          long double a, long double b, 
-                                         long double n);
+                                         int n);
 static long double boole(long double (*f)(long double), 
-                         long double a, long double b, long double n);
+                         long double a, long double b, int n);
 static long double f(long double x);
 
 int main(int argc, char *argv[]) {
@@ -41,22 +42,25 @@ static long double f(long double x) {
 }
 
 static long double trapezoid(long double (*f)(long double), 
-                             long double a, long double b, long double n) {
+                             long double a, long double b, int n) {
   return 0.0L;
 }
 
 static long double simpsons_third(long double (*f)(long double), 
-                                  long double a, long double b, long double n) {
+                                  long double a, long double b, int n) {
+  assert((n % 2) == 0); // n must be multiple of 2
   return 0.0L;
 }
 
 static long double simpsons_three_eighth(long double (*f)(long double), 
                                          long double a, long double b, 
-                                         long double n) {
+                                         int n) {
+  assert((n % 3) == 0); // n must be multiple of 3
   return 0.0L;
 }
 
 static long double boole(long double (*f)(long double), 
-                         long double a, long double b, long double n) {
+                         long double a, long double b, int n) {
+  assert((n % 4) == 0); // n must be multiple of 4
   return 0.0L;
 }

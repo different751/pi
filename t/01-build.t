@@ -18,4 +18,7 @@ my $compiler_output = `env CFLAGS="$CFLAGS" make -B $TARGET >/dev/null 2>/dev/nu
 ok((!$? and -f "$TARGET"), "$TARGET built");
 $compiler_output = `env CFLAGS="$CFLAGS -Werror" make -B $TARGET 2>&1`;
 ok((!$? and -f "$TARGET"), "$TARGET built without warnings");
-diag "Compiler output:\n", $compiler_output =~ s/^/  /mrg if $?;
+if ($?) {
+	$compiler_output =~ s/^/  /mg;
+	diag "Compiler output:\n", $compiler_output;
+}

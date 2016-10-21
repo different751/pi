@@ -8,4 +8,4 @@ LDLIBS = -lm
 all: $(TARGET)
 
 clean:
-	$(RM) $(TARGET)
+	$(RM) -r $(TARGET) *~ *.dSYM core *.o
